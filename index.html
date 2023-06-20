@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
@@ -6,15 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./knockout-3.5.1.js"></script>
+    <script defer src="./index.js"></script>
  </head>
  <body>
     <h1>Student Records</h1>
-
   <div>
     <h2>Add Student</h2>
-    <input type="text" data-bind="value: newStudent.name" placeholder="Name" />
+    <input type="text" data-bind= "value: newStudent.name" placeholder="Name" />
     <input type="text" data-bind="value: newStudent.age" placeholder="Age" />
-
     <div>
       <label>
         <input type="radio" value="Male" data-bind="checked: newStudent.gender" />
@@ -25,11 +24,9 @@
         Female
       </label>
     </div>
-
     <select data-bind="options: faculties, value: newStudent.faculty"></select>
     <button data-bind="click: addStudent">Add</button>
   </div>
-
   <table>
     <thead>
       <tr>
@@ -57,7 +54,6 @@
     <h2>Edit Student</h2>
     <input type="text" data-bind="value: editedStudent.name" placeholder="Name" />
     <input type="text" data-bind="value: editedStudent.age" placeholder="Age" />
-
     <div>
       <label>
         <input type="radio" value="Male" data-bind="checked: editedStudent.gender" />
@@ -68,13 +64,8 @@
         Female
       </label>
     </div>
-
     <select data-bind="options: faculties, value: editedStudent.faculty"></select>
     <button data-bind="click: applyChanges">Apply Changes</button>
-  </div><script>
-    
-    document.getElementById("editForm").style.display = "none";
-  </script>
-    <script src="./index.js"></script>
+  </div>
  </body>
  </html>
