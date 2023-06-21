@@ -5,6 +5,7 @@ function Student(name, age, gender, faculty) {
   self.gender = ko.observable(gender);
   self.faculty = ko.observable(faculty);
 }
+
 function AppViewModel() {
   var self = this;
   self.faculties = ["Science", "Arts", "Commerce"];
@@ -13,6 +14,7 @@ function AppViewModel() {
     new Student("Sita", 22, "Female", "Arts"),
     new Student("Rajesh", 19, "Male", "Commerce")
   ]);
+
   self.newStudent = {
     name: ko.observable(''),
     age: ko.observable(''),
@@ -36,6 +38,7 @@ function AppViewModel() {
       self.newStudent.gender('');
       self.newStudent.faculty('');
   };
+
   self.editStudent = function(student) {
     console.log("function called");
     document.getElementById("editForm").style.display = "block";
@@ -48,14 +51,15 @@ function AppViewModel() {
       console.log("apply function called");
       console.log(self.editedStudent.name());
       console.log(self.editedStudent.faculty());
+   
       var editedName = self.editedStudent.name();
       var editedAge = self.editedStudent.age();
       var editedGender = self.editedStudent.gender();
-      var editedFaculty = self.editedStudent.faculty();``
-        var student = self.students().forEach((element) => {
-          if(element.name()===self.editStudent.name()){
-            return element;
-          }});
+      var editedFaculty = self.editedStudent.faculty();
+
+      var student = ko.utils.arrayFirst(self.students(), function(s){
+        return s.name() === editedName;
+      })
   console.log(student);
       if (student) {
         student.name(editedName);
